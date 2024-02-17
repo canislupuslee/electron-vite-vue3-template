@@ -2,8 +2,11 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import { Internationalization } from '../shared/utils/i18n'
 
 function createWindow(): void {
+  const i18n = Internationalization.getInstance()
+  console.log('i18n', i18n.t('name'))
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -50,7 +53,7 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.on('ping', () => console.log('pong1222'))
 
   createWindow()
 

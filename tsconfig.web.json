@@ -1,9 +1,10 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
   "include": [
-    "src/renderer/src/env.d.ts",
-    "src/renderer/src/**/*",
-    "src/renderer/src/**/*.vue",
+    "src/shared/**/*.ts",
+    "src/renderer/types/vite-env.d.ts",
+    "src/renderer/**/*",
+    "src/renderer/**/*.vue",
     "src/preload/*.d.ts"
   ],
   "compilerOptions": {
@@ -11,7 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "@renderer/*": [
-        "src/renderer/src/*"
+        "src/renderer/*"
       ]
     }
   }
