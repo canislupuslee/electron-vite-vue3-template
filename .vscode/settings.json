@@ -10,5 +10,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "cSpell.words": ["Attributify", "iconify", "rushstack", "typecheck", "unocss", "unplugin", "vite"]
+  "cSpell.words": [
+    "Attributify",
+    "iconify",
+    "Persistedstate",
+    "pinia",
+    "rushstack",
+    "typecheck",
+    "unocss",
+    "unplugin",
+    "vite",
+    "vueuse"
+  ]
 }

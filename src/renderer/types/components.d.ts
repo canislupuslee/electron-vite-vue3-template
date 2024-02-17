@@ -7,12 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ILogosTypescriptIcon: typeof import('~icons/logos/typescript-icon')['default']
     ILogosTypescriptIconRound: typeof import('~icons/logos/typescript-icon-round')['default']
     ILogosVitejs: typeof import('~icons/logos/vitejs')['default']
     ILogosVue: typeof import('~icons/logos/vue')['default']
-    ISkillIconsElectron: typeof import('~icons/skill-icons/electron')['default']
-    ISkillIconsViteDark: typeof import('~icons/skill-icons/vite-dark')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Versions: typeof import('./../components/Versions.vue')['default']

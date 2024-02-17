@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { baseApiRequest } from '../../shared/service'
+const appStore = useAppStore()
+const { count, increment } = $(appStore)
 const ipcHandle = () => window.electron.ipcRenderer.send('ping')
 const vue = $ref('Vue')
 const typescript = $ref('TypeScript')
-import { neteaseRequest } from '../../shared/service'
 
-neteaseRequest({
+baseApiRequest({
   url: '/banner'
 }).then((res) => {
   console.log(res)
@@ -12,13 +14,14 @@ neteaseRequest({
 </script>
 
 <template>
-  <div text-24 flex mb-8>
+  <div text-24 flex mb-8 @click="increment">
     <img src="../assets/electron.svg" w-24 mr-8 alt="Vite Electron" />
     <i-logos-vitejs mr-8 />
     <i-logos-typescript-icon-round mr-8 />
     <i-logos-vue />
   </div>
-  <div class="creator">Powered by electron-vite {{ $t('name') }}</div>
+  <div class="creator">Powered by electron-vite{{ count }}</div>
+  <div class="creator">{{ $t('name') }}</div>
   <div class="text">
     Build an Electron app with
     <span class="vue">{{ vue }}</span>
@@ -35,4 +38,3 @@ neteaseRequest({
     </div>
   </div>
 </template>
-../../shared/service

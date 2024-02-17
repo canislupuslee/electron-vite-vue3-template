@@ -13,6 +13,9 @@ export function AutoImportPlugin(): PluginOption {
     imports: [
       'vue',
       'vue-i18n',
+      'pinia',
+      '@vueuse/head',
+      '@vueuse/core',
       VueRouterAutoImports,
       {
         // add any other imports you were relying on
@@ -20,6 +23,7 @@ export function AutoImportPlugin(): PluginOption {
       }
     ],
     resolvers: [IconsResolver()],
+    dirs: [resolve(process.cwd(), 'src/renderer/stores')],
     dts: 'types/auto-imports.d.ts',
     vueTemplate: true
   })

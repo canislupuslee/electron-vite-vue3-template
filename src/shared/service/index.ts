@@ -16,7 +16,7 @@ interface BaseRequestConfig<T, R> extends RequestConfig<BaseResponse<R>> {
   data?: T
 }
 
-const testBaseRequest = new Request({
+const baseRequest = new Request({
   baseURL: '/api',
   timeout: 1000 * 60 * 5,
   interceptors: {
@@ -37,21 +37,21 @@ const testBaseRequest = new Request({
  * @description: 函数的描述
  * @generic D 请求参数
  * @generic T 响应结构
- * @param {YWZRequestConfig} config 不管是GET还是POST请求都使用data
+ * @param {RequestConfig} config 不管是GET还是POST请求都使用data
  * @returns {Promise}
  */
-export const neteaseRequest = <D = any, T = any>(config: BaseRequestConfig<D, T>) => {
+export const baseApiRequest = <D = any, T = any>(config: BaseRequestConfig<D, T>) => {
   const { method = 'GET' } = config
   if (method === 'get' || method === 'GET') {
     config.params = config.data
   }
-  return testBaseRequest.request<BaseResponse<T>>(config)
+  return baseRequest.request<BaseResponse<T>>(config)
 }
 // 取消请求
 export const cancelNeteaseRequest = (url: string | string[]) => {
-  return testBaseRequest.cancelRequest(url)
+  return baseRequest.cancelRequest(url)
 }
 // 取消全部请求
 export const cancelNeteaseAllRequest = () => {
-  return testBaseRequest.cancelAllRequest()
+  return baseRequest.cancelAllRequest()
 }
